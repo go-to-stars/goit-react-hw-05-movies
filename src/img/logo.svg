@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6.1999998in" height="1.5in" viewBox="0 0 157.48 38.100001" id="svg851">
+   <g id="layer1" transform="translate(0,-258.9)">
+      <g id="g829" transform="matrix(0.40601225,0,0,0.40617644,4.7100521,260.58637)"
+         style="opacity:1;fill:#4056b4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none">
+         <path id="path825"
+            style="opacity:1;fill:#4056b4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.83080411;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
+            d="M 88,12.43 H 2 c -1.104,0 -2,0.896 -2,2 v 61.14 c 0,1.104 0.896,2 2,2 h 86 c 1.104,0 2,-0.896 2,-2 V 14.43 c 0,-1.105 -0.896,-2 -2,-2 z M 12.763,43 H 4 v -6.75 h 8.763 z m 0,4 v 6.75 H 4 V 47 Z m 0,-14.75 H 4 V 25.5 h 8.763 z M 4,57.75 h 8.763 V 64.5 H 4 Z M 16.763,16.43 H 73.238 V 73.57 H 16.763 Z M 77.237,47 H 86 v 6.75 h -8.763 z m 0,-4 V 36.25 H 86 V 43 Z m 0,-10.75 V 25.5 H 86 v 6.75 z m 0,25.5 H 86 V 64.5 H 77.237 Z M 86,21.5 H 77.237 V 16.43 H 86 Z M 12.763,16.43 V 21.5 H 4 V 16.43 Z M 4,68.5 h 8.763 v 5.07 H 4 Z m 73.237,5.07 V 68.5 H 86 v 5.07 z" />
+         <path id="path827"
+            style="opacity:1;fill:#4056b4;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.83080411;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none"
+            d="m 34.25,59.004 c -0.35,0 -0.7,-0.092 -1.012,-0.275 C 32.626,58.37 32.25,57.713 32.25,57.004 V 32.996 c 0,-0.709 0.376,-1.366 0.988,-1.725 0.611,-0.36 1.367,-0.368 1.987,-0.021 l 21.5,12.004 c 0.633,0.353 1.025,1.021 1.025,1.746 0,0.725 -0.393,1.393 -1.025,1.746 l -21.5,12.004 c -0.303,0.169 -0.639,0.254 -0.975,0.254 z m 2,-22.601 V 53.596 L 51.647,45 Z" />
+      </g>
+      <text id="text833" y="285.98212" x="46.852219"
+         style="font-style:normal;font-weight:normal;font-size:5.78070211px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#4056b4;fill-opacity:1;stroke:#4056b4;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve" transform="scale(0.99979785,1.0002022)">
+         <tspan
+            style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:19.26900673px;font-family:'Ink Free';-inkscape-font-specification:'Ink Free Italic';fill:#4056b4;fill-opacity:1;stroke:#4056b4;stroke-width:0.26458332px;stroke-opacity:1"
+            y="285.98212" x="46.852219" id="tspan831">Movie search</tspan>
+      </text>
+   </g>
+</svg>
