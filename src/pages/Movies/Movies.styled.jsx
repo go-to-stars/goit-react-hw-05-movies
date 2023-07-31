@@ -12,6 +12,7 @@ export const FormContainer = styled(Form)`
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
@@ -29,13 +30,13 @@ export const Input = styled(Field)`
   display: inline-block;
   width: 100%;
   padding: 9px 10px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
 
   font: inherit;
   font-size: 20px;
   line-height: 1;
 
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
   border: 2px solid #4056b4;
   outline: none;
 
@@ -50,47 +51,23 @@ export const Input = styled(Field)`
 
     font-size: 12px;
   }
-
-  &::placeholder {
-    font: inherit;
-    font-size: 20px;
-    line-height: 1;
-
-    @media (max-width: 1023.98px) {
-      font-size: 16px;
-    }
-
-    @media (max-width: 767.98px) {
-      font-size: 12px;
-    }
-  }
 `;
 
 export const Button = styled.button`
   display: flex;
-  //   width: 48px;
-  //   height: 48px;
   align-items: center;
   justify-content: center;
-  //   gap: 10px;
-  border: 0;
-  //   opacity: 0.6;
-  //   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  outline: none;
+  padding: 15.8px 10px;
+
   color: #4056b4;
   border: 2px solid #4056b4;
-  padding: 15.8px 10px;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-
-  //   &:hover {
-  //     opacity: 1;
-  //   }
+  cursor: pointer;
+  outline: none;
 
   &:hover,
   &:focus {
-    // opacity: 1;
     color: #ff6b0a;
     border: 2px solid #ff6b0a;
   }
@@ -138,42 +115,16 @@ export const ListMovies = styled.ul`
   display: flex;
   flex-direction: column;
   margin-top: 10px;
-
-  list-style: inside;
   gap: 5px;
+  list-style: inside;
 `;
 
 export const ListItemMovies = styled.li`
   font-size: 14px;
   color: #4056b4;
-  // transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
     color: #ff6b0a;
   }
-
-  // @media (max-width: 1023.98px) {
-  //     font-size: 12px;
-  //   }
-
-  //   @media (max-width: 767.98px) {
-  //     font-size: 10px;
-  //   }
 `;
-
-// export const ErrorTextMovies = styled.p
-//`;
-//   margin: 0;
-
-//   font-size: 14px;
-//   color: red;
-
-//   @media (max-width: 1023.98px) {
-//     font-size: 12px;
-//   }
-
-//   @media (max-width: 767.98px) {
-//     font-size: 10px;
-//   }
-// `;

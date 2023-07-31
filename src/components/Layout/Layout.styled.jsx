@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { ReactComponent as Logo } from '../../img/logo.svg';
 
 export const ContainerLayout = styled.div`
-  padding: 0px 0;
+  padding: 0;
 `;
 
 export const Logotype = styled(Logo)`
@@ -92,6 +92,7 @@ export const Footer = styled.footer`
   font-size: 20px;
   text-align: center;
   color: #4056b4;
+
   box-shadow: 0px 1px 3px 0px rgba(64, 86, 180, 0.2),
     0px 1px 1px 0px rgba(64, 86, 180, 0.14),
     0px 2px 1px -1px rgba(64, 86, 180, 0.12);

@@ -4,8 +4,8 @@ import { Loader } from 'components/Loader/Loader';
 import Notiflix from 'notiflix';
 import { getMovieCredits } from '../../services/apiService';
 import defaultImg from '../../img/defaultImgActor.png'; // картинка за замовчування
-import defaultImgFemale from '../../img/defaultImgFemale.png'; // картинка за замовчування
-import defaultImgMale from '../../img/defaultImgMale.png'; // картинка за замовчування
+import defaultImgFemale from '../../img/defaultImgFemale.png'; // картинка жінкиза замовчування
+import defaultImgMale from '../../img/defaultImgMale.png'; // картинка чоловіка за замовчування
 import {
   ListCast,
   ListCastItem,
@@ -17,10 +17,10 @@ import {
 } from './Cast.styled';
 
 const Cast = () => {
-  const { movieId } = useParams();
-  const [listCasts, setListCasts] = useState([]);
+  const { movieId } = useParams(); // виклик хука useParams повертає об’єкт пар ключ/значення динамічних параметрів із поточної URL-адреси, які відповідають <Route path>.
+  const [listCasts, setListCasts] = useState([]); // виклик хука useState створює стан listCasts і метод setListCasts, який змінює його значення
   const [isLoading, setIsLoading] = useState(false); // виклик хука useState створює стан isLoading і метод setIsLoading, який змінює його значення
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // виклик хука useState створює стан error і метод setError, який змінює його значення
   const URL = 'https://image.tmdb.org/t/p/w500'; // базова адреса
 
   const defImg = gender => {
@@ -37,7 +37,7 @@ const Cast = () => {
         break;
     }
     return imgDefault;
-  };
+  }; // функція defImg повертає зображення по замовчуванню (чоловік, жінка, особа без статі) в залежності від статі
 
   useEffect(() => {
     if (movieId !== '') {
@@ -63,7 +63,7 @@ const Cast = () => {
         );
         console.log('Error', error.message);
       }
-    } // якщо немає Id, то запит на сервер не робимо
+    } // якщо немає Id-фільму, то запит на сервер не робимо
   }, [movieId]); // якщо змінився Id-фільму (movieId) то виконуємо запит на сервер, при позитивній відповіді додаємо її в стан listCast
 
   return (
@@ -93,12 +93,10 @@ const Cast = () => {
           ))}
         </ListCast>
       ) : (
-        <div>
-          <TextCastInfo>No actors for this Movie</TextCastInfo>
-        </div>
+        <TextCastInfo>No actors for this Movie</TextCastInfo>
       )}
     </>
   );
-};
+}; // функція Cast повертає для рендеру розмітку на сторінку Movie компонента Cast (актоський склад)
 
-export default Cast;
+export default Cast; // дефолтний експорт функції Cast

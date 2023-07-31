@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import Notiflix from 'notiflix';
 import { getMovieReviews } from '../../services/apiService';
-import defaultImg from '../../img/defaultImgActor.png'; // картинка за замовчування
+import defaultImg from '../../img/defaultImgAuthor.png'; // картинка за замовчування
 import {
   ListReviews,
   ListReviewsItem,
@@ -13,13 +13,14 @@ import {
   Img,
   AutorReview,
   TextReview,
+  ErrorTextReview,
 } from './Reviews.styled';
 
 const Reviews = () => {
-  const { movieId } = useParams();
-  const [listReviews, setListReviews] = useState([]);
+  const { movieId } = useParams(); // виклик хука useParams повертає об’єкт пар ключ/значення динамічних параметрів із поточної URL-адреси, які відповідають <Route path>.
+  const [listReviews, setListReviews] = useState([]); // виклик хука useState створює стан listReviews і метод setListReviews, який змінює його значення
   const [isLoading, setIsLoading] = useState(false); // виклик хука useState створює стан isLoading і метод setIsLoading, який змінює його значення
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(null); // виклик хука useState створює стан error і метод setError, який змінює його значення
 
   useEffect(() => {
     if (movieId !== '') {
@@ -28,7 +29,7 @@ const Reviews = () => {
         getMovieReviews(movieId)
           .then(respons => {
             const data = respons;
-            setListReviews(data); // записуємо отримані дані в стан MovieDetails
+            setListReviews(data); // записуємо отримані дані в стан listReviews
             setIsLoading(false); // записуємо false в стан isLoading (сховати лоадер)
           })
           .catch(error => {
@@ -45,9 +46,8 @@ const Reviews = () => {
         );
         console.log('Error', error.message);
       }
-    } // якщо немає Id, то запит на сервер не робимо
+    } // якщо немає Id-фільму, то запит на сервер не робимо
   }, [movieId]); // якщо змінився Id-фільму (movieId) то виконуємо запит на сервер, при позитивній відповіді додаємо її в стан MovieDetails
-  console.log(listReviews);
 
   return (
     <>
@@ -64,7 +64,8 @@ const Reviews = () => {
                   <Img
                     src={
                       val.author_details.avatar_path &&
-                      val.author_details.avatar_path !== null
+                      val.author_details.avatar_path !== null &&
+                      val.author_details.avatar_path.slice(1, 6) === 'https'
                         ? val.author_details.avatar_path.substring(1)
                         : defaultImg
                     }
@@ -74,16 +75,16 @@ const Reviews = () => {
                 <AutorReview>Author: {val.author}</AutorReview>
                 <TextReview>{val.content}</TextReview>
               </ReviewCard>
-              {/* <AutorReview>Author: {val.author}</AutorReview>
-              <TextReview>{val.content}</TextReview> */}
             </ListReviewsItem>
           ))
         ) : (
-          <p>We don't have any reviews for this movie.</p>
+          <ErrorTextReview>
+            We don't have any reviews for this movie.
+          </ErrorTextReview>
         )}
       </ListReviews>
     </>
   );
-};
+}; // функція Reviews повертає для рендеру розмітку на сторінку Movie компонента Reviews (відгуки на фільм)
 
-export default Reviews;
+export default Reviews; // дефолтний експорт функції Cast

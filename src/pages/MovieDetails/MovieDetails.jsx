@@ -140,9 +140,9 @@ const MovieDetails = () => {
       </Suspense>
     </ContainerMovieDetails>
   );
-};
+}; // функція MovieDetails повертає для рендеру розмітку сторінку MovieDetails (деталі фільму: назва, огляд, жанри)
 
-export default MovieDetails;
+export default MovieDetails; // дефолтний експорт функції Home
 
 // return (
 //   <ContainerMovieDetails>  // контейнер сторіки
@@ -203,7 +203,7 @@ export default MovieDetails;
 //       </ListAdditionalDescrItem>
 //     </ListAdditionalDescr>
 //     <Suspense fallback={<Loader />}>
-//       <Outlet />
+//       <Outlet /> // сюди вбуде все рендеритися
 //     </Suspense>
 //   </ContainerMovieDetails>
 // );

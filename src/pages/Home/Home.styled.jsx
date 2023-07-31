@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-// import { css } from '@emotion/css';
 
 export const ContainerHome = styled.div`
   padding: 20px;
@@ -15,6 +14,7 @@ export const ContainerHome = styled.div`
 
 export const TitleHome = styled.h1`
   margin-bottom: 15px;
+
   font-size: 28px;
   color: #4056b4;
 

@@ -10,9 +10,9 @@ import {
 } from './Home.styled';
 
 const Home = () => {
-  const [listMovies, setListMovies] = useState([]);
-  const [error, setError] = useState(null);
-  const location = useLocation();
+  const [listMovies, setListMovies] = useState([]); // виклик хука listMovies створює стан error і метод setListMovies, який змінює його значення
+  const [error, setError] = useState(null); // виклик хука useState створює стан error і метод setError, який змінює його значення
+  const location = useLocation(); //стек історії навігації описаний об'єктом розташування (location) знабором властивостей, які зберігають повну інформацію про URL
 
   useEffect(() => {
     getTrending()
@@ -21,7 +21,7 @@ const Home = () => {
         setListMovies(data);
       })
       .catch(error => setError(error));
-  }, []);
+  }, []); // при кожному рендері сторінки виконуємо запит на сервер, при позитивній відповіді додаємо її в стан listMovies
 
   return (
     <ContainerHome>
@@ -43,6 +43,6 @@ const Home = () => {
       </ListHome>
     </ContainerHome>
   );
-};
+}; // функція Home повертає для рендеру розмітку сторінки Home (список головних трендів цього дня)
 
-export default Home;
+export default Home; // дефолтний експорт функції Home

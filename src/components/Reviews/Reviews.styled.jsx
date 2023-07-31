@@ -33,6 +33,22 @@ export const ErrorTextReviews = styled.p`
   }
 `;
 
+export const ErrorTextReview = styled.p`
+  margin-top: 10px;
+  text-align: center;
+
+  font-size: 14px;
+  color: red;
+
+  @media (max-width: 1023.98px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: 10px;
+  }
+`;
+
 export const AutorReview = styled.h2`
   margin-bottom: 12px;
 

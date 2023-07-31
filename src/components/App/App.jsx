@@ -2,19 +2,15 @@ import { Routes, Route } from 'react-router-dom';
 import { lazy } from 'react';
 import { Container } from './App.styled';
 import Layout from '../Layout/Layout';
-// import Home from 'pages/Home/Home';
-// import Movies from 'pages/Movies/Movies';
-// import MovieDetails from 'pages/MovieDetails/MovieDetails';
-// import Cast from '../Cast/Cast';
-// import Reviews from '../Reviews/Reviews';
 
-const Home = lazy(() => import('../../pages/Home/Home'));
-const Movies = lazy(() => import('../../pages/Movies/Movies'));
-const MovieDetails = lazy(() =>
-  import('../../pages/MovieDetails/MovieDetails')
-);
-const Cast = lazy(() => import('../Cast/Cast'));
-const Reviews = lazy(() => import('../Reviews/Reviews'));
+
+const Home = lazy(() => import('../../pages/Home/Home')); // розділення коду за допомогою динамічного імпорту сторінки Home
+const Movies = lazy(() => import('../../pages/Movies/Movies')); // розділення коду за допомогою динамічного імпорту сторінки Movies
+const MovieDetails = lazy(
+  () => import('../../pages/MovieDetails/MovieDetails') 
+); // розділення коду за допомогою динамічного імпорту сторінки MovieDetails
+const Cast = lazy(() => import('../Cast/Cast')); // розділення коду за допомогою динамічного імпорту компонента Cast
+const Reviews = lazy(() => import('../Reviews/Reviews')); // розділення коду за допомогою динамічного імпорту компонента Reviews
 
 const App = () => {
   return (
@@ -32,6 +28,6 @@ const App = () => {
       </Routes>
     </Container>
   );
-};
+}; // функція App повернення для рендеру розмітку застосунку "Пошук фільмів" (сторінки Home, Movies, MovieDetails та компоненти Layout, Cast та Reviews)
 
-export default App;
+export default App; // дефолтний експорт функції App  

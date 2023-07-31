@@ -22,7 +22,7 @@ const queryRegex = /^[a-zA-Zа-яА-Я]*$/; // регулярний вираз �
 const schema = Yup.object().shape({
   query: Yup.string()
     .matches(queryRegex, 'Query is not valid!')
-    .max(15, 'Too Long!')
+    .max(50, 'Too Long!')
     .trim(),
 }); // валідація полів форми
 
@@ -31,12 +31,12 @@ const INITIAL_STATE = {
 }; // ініціалізація полів форми
 
 const Movies = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const query = searchParams.get('query') ?? '';
-  const [searchQuery, setSearchQuery] = useState('');
-  const [listMovies, setListMovies] = useState([]);
-  const location = useLocation();
-  const [error, setError] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams(); // хук useSearchParams використовується для читання та зміни рядка запиту в URL для поточного розташування. useSearchParams повертає масив із двох значень: параметри пошуку поточного розташування (searchParams) та функцію, яка може бути використана для його оновлення (setSearchParams).
+  const query = searchParams.get('query') ?? ''; // змінній query присвоюємо значення хука searchParams, якщо воно є, інакше пустий рядок
+  const [searchQuery, setSearchQuery] = useState(''); // виклик хука useState створює стан searchQuery і метод setSearchQuery, який змінює його значення
+  const [listMovies, setListMovies] = useState([]); // виклик хука useState створює стан listMovies і метод setListMovies, який змінює його значення
+  const location = useLocation(); //стек історії навігації описаний об'єктом розташування (location) знабором властивостей, які зберігають повну інформацію про URL
+  const [error, setError] = useState(null); // виклик хука useState створює стан error і метод setError, який змінює його значення
   const [isLoading, setIsLoading] = useState(false); // виклик хука useState створює стан isLoading і метод setIsLoading, який змінює його значення
 
   useEffect(() => {
@@ -46,7 +46,7 @@ const Movies = () => {
         searchMovies(query)
           .then(respons => {
             const data = respons;
-            setListMovies(data); // записуємо отримані дані в стан ListMovies
+            setListMovies(data); // записуємо отримані дані в стан listMovies
             setIsLoading(false); // записуємо false в стан isLoading (сховати лоадер)
 
             if (data.length === 0) {
@@ -70,15 +70,14 @@ const Movies = () => {
         console.log('Error', error.message);
       }
     } // якщо поле query пусте, то запит на сервер не робимо
-  }, [query]); // якщо змінився запит (query) то виконуємо запит на сервер, при позитивній відповіді додаємо її в стан ListMovies
+  }, [query]); // якщо змінився запит (query) то виконуємо запит на сервер, при позитивній відповіді додаємо її в стан listMovies
 
-  const inputChange = e => setSearchQuery(e.target.value.toLowerCase());
+  const inputChange = e => setSearchQuery(e.target.value.toLowerCase()); // функція inputChange, при зміні інпуту записує його значення в стан searchQuery
 
   const formSubmit = e => {
-    // e.preventDefault();    
     searchQuery && setSearchParams({ query: searchQuery });
     e.target = '';
-  };
+  }; // функція formSubmit, записує в стан searchParams (рядка URL) значення стану searchQuery
 
   return (
     <ContainerMovies>
@@ -115,6 +114,6 @@ const Movies = () => {
       </ListMovies>
     </ContainerMovies>
   );
-};
+}; // функція Movies повертає для рендеру розмітку сторінку Movies (пошуковий рядок, та список знайденого за запитом) 
 
-export default Movies;
+export default Movies; // дефолтний експорт функції Home

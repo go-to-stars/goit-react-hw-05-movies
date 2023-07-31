@@ -33,13 +33,14 @@ export const ListCast = styled.ul`
 export const ListCastItem = styled.li`
   display: flex;
   flex-direction: column;
+  gap: 5px;
+  padding-bottom: 10px;
   align-items: center;
   overflow: hidden;
+
   text-overflow: ' [..]';
   text-align: start;
 
-  gap: 5px;
-  padding-bottom: 10px;
   box-shadow: 0px 1px 6px rgba(64, 86, 180, 0.08),
     0px 1px 1px rgba(64, 86, 180, 0.16), 0px 2px 1px rgba(64, 86, 180, 0.08);
   border-radius: 0px 0px 4px 4px;
@@ -87,13 +88,10 @@ export const Img = styled.img`
 
 export const TextCast = styled.p`
   margin: 0;
-  //   text-overflow: scroll;
-  white-space: nowrap;
-  //   overflow: hidden;
-  text-overflow: ellipsis;
 
   font-size: 16px;
-  //   color: red;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 
   @media (max-width: 1023.98px) {
     font-size: 14px;

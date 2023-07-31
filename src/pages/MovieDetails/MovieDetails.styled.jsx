@@ -12,7 +12,7 @@ export const ButtonBack = styled(Link)`
   align-items: center;
   justify-content: center;
   margin: 6px auto 16px 16px;
-  padding: 2px 10px;  
+  padding: 2px 10px;
 
   cursor: pointer;
   outline: none;
@@ -207,7 +207,7 @@ export const ListAdditionalDescr = styled.ul`
 
 export const ListAdditionalDescrItem = styled.li`
   line-height: 0.6;
-  color: #4056b4;  
+  color: #4056b4;
 
   &:hover,
   &:focus {
