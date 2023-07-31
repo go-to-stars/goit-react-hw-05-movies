@@ -87,7 +87,12 @@ const Cast = () => {
                 />
               </BoxImg>
               <TextCast>{val.name}</TextCast>
-              <TextCast>Character: {val.character}</TextCast>
+              <TextCast>Character: {val.character.slice(0, 17)}</TextCast>
+              <TextCast>
+                {val.character.slice(17).length === 0
+                  ? '-'
+                  : val.character.slice(17)}
+              </TextCast>
               <TextCast>Popularity: {val.popularity}</TextCast>
             </ListCastItem>
           ))}
