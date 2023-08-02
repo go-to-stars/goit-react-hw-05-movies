@@ -1,13 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
-import { lazy } from 'react';
+import { lazy, Fragment } from 'react';
 import { Container } from './App.styled';
 import Layout from '../Layout/Layout';
-
+import ScrollUpButton from '../ScrollUpButton/ScrollUpButton';
 
 const Home = lazy(() => import('../../pages/Home/Home')); // розділення коду за допомогою динамічного імпорту сторінки Home
 const Movies = lazy(() => import('../../pages/Movies/Movies')); // розділення коду за допомогою динамічного імпорту сторінки Movies
-const MovieDetails = lazy(
-  () => import('../../pages/MovieDetails/MovieDetails') 
+const MovieDetails = lazy(() =>
+  import('../../pages/MovieDetails/MovieDetails')
 ); // розділення коду за допомогою динамічного імпорту сторінки MovieDetails
 const Cast = lazy(() => import('../Cast/Cast')); // розділення коду за допомогою динамічного імпорту компонента Cast
 const Reviews = lazy(() => import('../Reviews/Reviews')); // розділення коду за допомогою динамічного імпорту компонента Reviews
@@ -26,8 +26,11 @@ const App = () => {
           <Route path="*" element={<Home />} />
         </Route>
       </Routes>
+      <Fragment>        
+        <ScrollUpButton />
+      </Fragment>
     </Container>
   );
 }; // функція App повернення для рендеру розмітку застосунку "Пошук фільмів" (сторінки Home, Movies, MovieDetails та компоненти Layout, Cast та Reviews)
 
-export default App; // дефолтний експорт функції App  
+export default App; // дефолтний експорт функції App

@@ -12,9 +12,15 @@ import {
   ErrorTextCast,
   BoxImg,
   Img,
+  TextCastTitle,
   TextCast,
   TextCastInfo,
 } from './Cast.styled';
+
+const initStrSeparate = {
+  maxLenghtFierstStr: 15,
+  maxLenghtSecondStr: 26,
+}; // обмеження максимальної довжини 1 та 2 рядків властивості Character
 
 const Cast = () => {
   const { movieId } = useParams(); // виклик хука useParams повертає об’єкт пар ключ/значення динамічних параметрів із поточної URL-адреси, які відповідають <Route path>.
@@ -38,6 +44,56 @@ const Cast = () => {
     }
     return imgDefault;
   }; // функція defImg повертає зображення по замовчуванню (чоловік, жінка, особа без статі) в залежності від статі
+
+  const strSeparate = (str, number) => {
+    let strRezult = '';
+    const findPosition = str.lastIndexOf(
+      ' ',
+      initStrSeparate.maxLenghtFierstStr
+    ); // якщо в рядку, з початку рядка і до максимальної довжини 1-го рядка, є пробіл то знаходимо його останню позицію, інакше - "-1"
+
+    const isPosition = findPosition === -1; // якщо в рядку немає пробілу, то isPosition = true
+    const isMaxLenght = str.length > initStrSeparate.maxLenghtFierstStr; // якщо довжина всьго рядка більша за максимальну довжину 1-го рядка, то isMaxLenght = true
+
+    if (str === 0) {
+      return (strRezult = '-');
+    } // якщо рядок пустий, то повертаємо '-'
+
+    switch (number) {
+      case 1:
+        strRezult = str.slice(
+          0,
+          isMaxLenght
+            ? isPosition
+              ? initStrSeparate.maxLenghtFierstStr
+              : findPosition
+            : str.length
+        ); // з рядка витягнути частину з 0 позиції по: якщо isMaxLenght = true, то (якщо isPosition = true, то до кінця максимальної довжини 1-го рядка, інакше, по позицію пробілу), інікше по довжину всього рядка
+        break;
+      case 2:
+        strRezult = str.slice(
+          isMaxLenght
+            ? isPosition
+              ? initStrSeparate.maxLenghtFierstStr
+              : findPosition + 1
+            : str.length,
+          isPosition
+            ? initStrSeparate.maxLenghtFierstStr +
+                initStrSeparate.maxLenghtSecondStr
+            : findPosition + initStrSeparate.maxLenghtSecondStr
+        ); // з рядка витягнути частину з ((якщо isMaxLenght = true, то (якщо isPosition = true, то з кінця максимальної довжини 1-го рядка, інакше, з позиції пробілу + 1), інікше з довжини всього рядка) позиції (повертається пустий рядок), по: якщо isPosition = true, то по кінець максимальної довжини 2-го рядка, інакше, по позицію пробілу + максимальнона довжини 2-го рядка
+        strRezult = strRezult === '' ? '-' : strRezult; // якщо рядок пустий, то повертаємо '-'
+        break;
+      default:
+        strRezult = str.slice(
+          0,
+          0,
+          isPosition ? initStrSeparate.maxLenghtFierstStr : findPosition
+        );
+        break;
+    }
+    return strRezult;
+  }; // функція strSeparate розділяє властивість Character картки актора на 2 рядки в залежності від її довжини
 
   useEffect(() => {
     if (movieId !== '') {
@@ -86,13 +142,9 @@ const Cast = () => {
                   alt={val.name ? val.name : 'actor'}
                 />
               </BoxImg>
-              <TextCast>{val.name}</TextCast>
-              <TextCast>Character: {val.character.slice(0, 17)}</TextCast>
-              <TextCast>
-                {val.character.slice(17).length === 0
-                  ? '-'
-                  : val.character.slice(17)}
-              </TextCast>
+              <TextCastTitle>{val.name}</TextCastTitle>
+              <TextCast>Character: {strSeparate(val.character, 1)}</TextCast>
+              <TextCast> {strSeparate(val.character, 2)}</TextCast>
               <TextCast>Popularity: {val.popularity}</TextCast>
             </ListCastItem>
           ))}

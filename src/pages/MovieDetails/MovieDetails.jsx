@@ -1,20 +1,16 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
+import MovieCard from '../../components/MovieCard/MovieCard';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
 import Notiflix from 'notiflix';
 import { BiArrowBack } from 'react-icons/bi';
 import { getMovieDetails } from '../../services/apiService';
+
 import {
   ContainerMovieDetails,
   ButtonBack,
   ButtonBackText,
   ErrorTextMovieDetails,
-  MovieCard,
-  BoxImg,
-  Img,
-  BoxDescription,
-  DescriptionTitle,
-  DescriptionText,
   DescriptionSubTitle,
   ListAdditionalDescr,
   ListAdditionalDescrItem,
@@ -28,8 +24,6 @@ const MovieDetails = () => {
   const [error, setError] = useState(null); // виклик хука useState створює стан error і метод setError, який змінює його значення
   let location = useLocation(); //  хук useLocation повертає поточний location об'єкт
   let linkLocationReference = useRef(location.state?.from ?? '/movies'); // хук useRef повертає змінний об’єкт посилання, .current властивість якого ініціалізовано переданим аргументом ( initialValue). Повернений об’єкт зберігатиметься протягом повного життя компонента.
-  const URL = 'https://image.tmdb.org/t/p/w500'; // базова адреса
-  const defaultImg = '../../img/defaultImg.png'; // картинка за замовчування
 
   useEffect(() => {
     if (movieId !== '') {
@@ -75,45 +69,10 @@ const MovieDetails = () => {
 
       {error && <ErrorTextMovieDetails>{error.message}</ErrorTextMovieDetails>}
 
-      {movieDetails && (
-        <MovieCard>
-          <BoxImg>
-            {movieDetails.poster_path && (
-              <Img
-                src={
-                  movieDetails.poster_path
-                    ? `${URL}${movieDetails.poster_path}`
-                    : defaultImg
-                }
-                alt={
-                  movieDetails.original_title
-                    ? movieDetails.original_title
-                    : 'poster'
-                }
-              />
-            )}
-          </BoxImg>
-          <BoxDescription>
-            <DescriptionTitle>
-              {movieDetails.original_title}
-              {' ('}
-              {movieDetails.release_date &&
-                movieDetails.release_date.slice(0, 4)}
-              {')'}
-            </DescriptionTitle>
-            <DescriptionText>
-              User score: {Math.round(movieDetails.vote_average * 10)}%
-            </DescriptionText>
-            <DescriptionSubTitle>Overview</DescriptionSubTitle>
-            <DescriptionText>{movieDetails.overview}</DescriptionText>
-            <DescriptionSubTitle>Genres</DescriptionSubTitle>
-            <DescriptionText>
-              {movieDetails.genres &&
-                movieDetails.genres.map(val => val.name + ' ')}
-            </DescriptionText>
-          </BoxDescription>
-        </MovieCard>
+      {movieDetails && (     
+        <MovieCard movieDetails={movieDetails} />
       )}
+      
       <DescriptionSubTitle>Additional information</DescriptionSubTitle>
       <ListAdditionalDescr>
         <ListAdditionalDescrItem>

@@ -87,4 +87,4 @@ const Reviews = () => {
   );
 }; // функція Reviews повертає для рендеру розмітку на сторінку Movie компонента Reviews (відгуки на фільм)
 
-export default Reviews; // дефолтний експорт функції Cast
+export default Reviews; // дефолтний експорт функції Reviews

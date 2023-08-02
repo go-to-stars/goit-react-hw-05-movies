@@ -102,6 +102,23 @@ export const TextCast = styled.p`
   }
 `;
 
+export const TextCastTitle = styled.p`
+  margin: 0;
+
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @media (max-width: 1023.98px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: 12px;
+  }
+`;
+
 export const TextCastInfo = styled.p`
   margin-top: 10px;
 
