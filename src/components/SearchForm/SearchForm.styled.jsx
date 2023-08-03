@@ -25,7 +25,7 @@ export const FormContainer = styled(Form)`
 export const Input = styled(Field)`
   display: inline-block;
   width: 100%;
-  height: 44px;  
+  height: 46px;
   padding: 0px 10px;
 
   font: inherit;
@@ -38,13 +38,13 @@ export const Input = styled(Field)`
   outline: none;
 
   @media (max-width: 1023.98px) {
-    height: 38px;    
+    height: 40px;
 
     font-size: 16px;
   }
 
-  @media (max-width: 767.98px) {    
-    height: 32px;    
+  @media (max-width: 767.98px) {
+    height: 33px;
     padding: 0px 6px;
 
     font-size: 12px;
@@ -56,7 +56,7 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   width: 48px;
-  height: 48px;  
+  height: 48px;
 
   color: #4056b4;
   border: 2px solid #4056b4;
@@ -73,7 +73,7 @@ export const Button = styled.button`
 
   @media (max-width: 1023.98px) {
     width: 42px;
-    height: 42px;    
+    height: 42px;
   }
 
   @media (max-width: 767.98px) {
